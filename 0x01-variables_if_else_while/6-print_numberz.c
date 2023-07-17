@@ -4,7 +4,8 @@
  * main - Entry point of the program
  *
  * Description: This program prints all single-digit numbers of base 10
- * starting from 0 without newline, then followed by a newline after printing all the digits.
+ * starting from 0 without newline, then followed by a newline after printing
+ * all the digits.
  * It uses the putchar function to print the digits.
  *
  * Return: Always 0 (Success)
