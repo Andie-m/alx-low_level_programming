@@ -1,3 +1,4 @@
+#include "main.h"
 #include <unistd.h>
 
 /**
@@ -18,5 +19,18 @@ if (result == -1)
 return 1; /* Error occurred while writing */
 bytes_written += result;
 }
-return (0);
+
+return 0;
 }
+
+/**
+ * _putchar - Custom function to write a character to the standard output.
+ *
+ * @c: The character to be written.
+ * Return: On success, returns the character written. On error, -1 is returned.
+ */
+int _putchar(char c)
+{
+return write(STDOUT_FILENO, &c, 1);
+}
+
