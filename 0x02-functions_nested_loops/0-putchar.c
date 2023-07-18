@@ -14,13 +14,13 @@ ssize_t bytes_written = 0;
 
 while (bytes_written < len)
 {
-ssize_t result = write(STDOUT_FILENO, str + bytes_written, len - bytes_written);
+ssize_t result = _putchar(str[bytes_written]);
 if (result == -1)
 return 1; /* Error occurred while writing */
 bytes_written += result;
 }
 
-return 0;
+return (0);
 }
 
 /**
