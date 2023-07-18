@@ -31,8 +31,8 @@ int main(void)
  * @c: The character to be written.
  * Return: On success, returns the character written. On error, -1 is returned.
  */
-int _putchar(char c)
+/*int _putchar(char c)
 {
 	return write(STDOUT_FILENO, &c, 1);
-}
+}*/
 
