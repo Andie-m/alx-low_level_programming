@@ -1,3 +1,4 @@
+#include "main.h"
 #include <unistd.h>
 
 /**
@@ -7,7 +8,8 @@
  */
 int main(void)
 {
-	char str[] = "_putchar\n";
+	char str[] = "_putchar";
+	print(str);
 	ssize_t len = sizeof(str) - 1;
 	ssize_t bytes_written = 0;
 
