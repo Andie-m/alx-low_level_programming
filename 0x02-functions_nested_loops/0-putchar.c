@@ -1,3 +1,10 @@
+#ifndef MAIN_H
+#define MAIN_H
+
+/* Function prototype */
+int _putchar(char c);
+
+#endif /* MAIN_H */
 #include "main.h"
 #include <unistd.h>
 
@@ -8,19 +15,19 @@
  */
 int main(void)
 {
-char str[] = "_putchar\n";
-ssize_t len = sizeof(str) - 1;
-ssize_t bytes_written = 0;
+    char str[] = "_putchar\n";
+    ssize_t len = sizeof(str) - 1;
+    ssize_t bytes_written = 0;
 
-while (bytes_written < len)
-{
-ssize_t result = _putchar(str[bytes_written]);
-if (result == -1)
-return (1); /* Error occurred while writing */
-bytes_written += result;
-}
+    while (bytes_written < len)
+    {
+        ssize_t result = _putchar(str[bytes_written]);
+        if (result == -1)
+            return 1; /* Error occurred while writing */
+        bytes_written += result;
+    }
 
-return (0);
+    return 0;
 }
 
 /**
@@ -31,6 +38,6 @@ return (0);
  */
 int _putchar(char c)
 {
-return write(STDOUT_FILENO, &c, (1));
+    return write(STDOUT_FILENO, &c, 1);
 }
 
