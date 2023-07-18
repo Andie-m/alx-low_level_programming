@@ -16,7 +16,7 @@ while (bytes_written < len)
 {
 ssize_t result = _putchar(str[bytes_written]);
 if (result == -1)
-return 1; /* Error occurred while writing */
+return (1); /* Error occurred while writing */
 bytes_written += result;
 }
 
@@ -31,6 +31,6 @@ return (0);
  */
 int _putchar(char c)
 {
-return write(STDOUT_FILENO, &c, 1);
+return write(STDOUT_FILENO, &c, (1));
 }
 
