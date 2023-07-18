@@ -10,6 +10,7 @@ int main(void)
 {
 	char str[] = "_putchar";
 	print(str);
+	/*
 	ssize_t len = sizeof(str) - 1;
 	ssize_t bytes_written = 0;
 
@@ -17,10 +18,10 @@ int main(void)
 	{
 		ssize_t result = _putchar(str[bytes_written]);
 		if (result == -1)
-			return 1; /* Error occurred while writing */
+			return 1; // Error occurred while writing 
 		bytes_written += result;
 	}
-
+*/
 	return 0;
 }
 
