@@ -6,11 +6,3 @@ void print(char *data){
        putchar(data[i]);
     }
 }
-#ifndef MAIN_H
-#define MAIN_H
-
-/* Function prototype for print_alphabet */
-void print_alphabet(void);
-
-#endif /* MAIN_H */
-
