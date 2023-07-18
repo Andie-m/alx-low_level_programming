@@ -8,7 +8,7 @@
  */
 int main(void)
 {
-	char str[] = "_putchar(\n)";
+	char str[] = "_putchar \n";
 	print(str);
 	/*
 	ssize_t len = sizeof(str) - 1;
