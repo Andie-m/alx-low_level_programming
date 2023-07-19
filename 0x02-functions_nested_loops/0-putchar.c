@@ -6,9 +6,8 @@
  *
  * Return: Always 0 (Success)
  */
-int main(void)
-{
-char str[] = "_putchar\n";
-print(str);
-return (0);
+int main() {
+printf("_putchar\n");
+return 0;
 }
+
