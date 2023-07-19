@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h> // Include the header file for the putchar function
 
 void print_alphabet(void) {
     char letter;
