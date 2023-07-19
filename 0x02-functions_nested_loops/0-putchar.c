@@ -1,5 +1,4 @@
 #include "main.h"
-#include <unistd.h>
 
 /**
  * main - Entry point of the program.
@@ -20,11 +19,6 @@ int main(void)
     _putchar('r');
     _putchar('\n');
 
-    return 0;
-}
-
-int _putchar(char c)
-{
-    return write(1, &c, 1);
+    return (0);
 }
 
