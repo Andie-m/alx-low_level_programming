@@ -23,13 +23,6 @@ int main(void)
     return 0;
 }
 
-/**
- * _putchar - Writes a character to the standard output (file descriptor 1).
- *
- * @c: The character to be written.
- *
- * Return: On success, 1. On error, -1 is returned.
- */
 int _putchar(char c)
 {
     return write(1, &c, 1);
