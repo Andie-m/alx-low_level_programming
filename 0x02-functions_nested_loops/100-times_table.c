@@ -1,16 +1,18 @@
 #include "main.h"
 
 /**
- * _isalpha - checks for alphabetic character
- * @c: character to be checked
- * Return: 1 for alphabetic character or 0 for anything else
+ * main - check the code.
+ *
+ * Return: Always 0.
  */
-
-int _isalpha(int c)
+int main(void)
 {
-if ((c >= 65 && c <= 97) || (c >= 97 && c <= 122))
-{
-return (1);
-}
-return (0);
+    print_times_table(3);
+    _putchar('\n');
+    print_times_table(5);
+    _putchar('\n');
+    print_times_table(98);
+    _putchar('\n');
+    print_times_table(12);  
+    return (0);
 }
