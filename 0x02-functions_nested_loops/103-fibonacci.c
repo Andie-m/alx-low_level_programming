@@ -10,7 +10,8 @@ int main(void)
 long int prev = 1; /* Initialize the first Fibonacci number */
 long int current = 2; /* Initialize the second Fibonacci number */
 long int next = 0; /* Variable to store the next Fibonacci number */
-long int sum = 2; /* Initialize sum with the second Fibonacci number (which is even) */
+long int sum = 2; /* Initialize sum with the second Fibonacci number
+		   (which is even) */
 
 /* Calculate the Fibonacci numbers and find the sum of even-valued terms */
 while (1)
