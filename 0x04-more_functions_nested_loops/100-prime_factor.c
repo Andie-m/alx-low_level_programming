@@ -29,17 +29,12 @@ long largest_prime_factor(long n)
     return largest;
 }
 
-/**
- * main - Entry point of the program.
- *
- * Return: Always 0.
- */
 int main(void)
 {
     long number = 612852475143;
     long largest_prime = largest_prime_factor(number);
 
-    printf("The largest prime factor of %ld is %ld\n", number, largest_prime);
+    printf("%ld\n", largest_prime);
     return 0;
 }
-
+	
