@@ -1,12 +1,13 @@
 #include <stdio.h>
 
-/**
-
-⦁ 
-main - prints the first 98 Fibonacci numbers, starting with 1 and 2
-⦁ 
-Return: 0
-*/
+/*
+ * print_fibonacci_numbers - Prints the first 'count' Fibonacci numbers.
+ * @count: The number of Fibonacci numbers to print.
+ *
+ * This function prints the first 'count' Fibonacci numbers, starting with 1 and 2,
+ * separated by a comma and a space, followed by a new line.
+ * It adheres to the ISO C90 standard and follows Betty coding style.
+ */
 
 int main(void)
 {
