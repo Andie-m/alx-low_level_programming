@@ -30,6 +30,6 @@ printf("%ld, ", fibonacci[i]);
 /* Print the last Fibonacci number followed by a new line */
 printf("%ld\n", fibonacci[49]);
 
-return 0; /* Indicate successful program execution */
+return (0); /* Indicate successful program execution */
 }
 
