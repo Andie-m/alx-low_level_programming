@@ -5,6 +5,9 @@
  * replacing multiples of 3 with "Fizz",
  * multiples of 5 with "Buzz", and
  * multiples of both 3 and 5 with "FizzBuzz".
+ * main - Entry point of the program
+ *
+ * Return: Always 0 (success)
  */
 void fizzbuzz(void)
 {
@@ -30,11 +33,6 @@ printf("%d ", num);
 }
 }
 
-/**
- * main - Entry point of the program
- *
- * Return: Always 0
- */
 int main(void)
 {
 fizzbuzz();
