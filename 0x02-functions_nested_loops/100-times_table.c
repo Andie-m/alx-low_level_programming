@@ -1,41 +1,30 @@
 #include <stdio.h>
 
 /**
- * print_times_table - Prints the n times table starting with 0
- * @n: The number to generate the times table for
+ * print_times_table - Prints the n times table, starting with 0.
+ * @n: The number to print the times table for.
  *
- * This function prints the times table for the given number n.
- * The table starts with 0 and goes up to n times n.
+ * Description: This function prints the times table for a given number 'n'.
  * If n is greater than 15 or less than 0, the function does not print anything.
+ * The output is comma-separated values for each row, and a new line separates each row.
  */
-void print_times_table(int n)
-{
-    /* Check if n is within the valid range (0 to 15) */
-    if (n < 0 || n > 15)
-        return;
+void print_times_table(int n) {
+    int i, j;
 
-    /* Loop to print the times table */
-    for (int i = 0; i <= n; i++)
-    {
-        for (int j = 0; j <= n; j++)
-        {
-            /* Calculate the product and print it */
-            int product = i * j;
-            printf("%d", product);
+    // Check if n is out of range (less than 0 or greater than 15)
+    if (n < 0 || n > 15) {
+        return; // If n is out of range, do not print anything
+    }
 
-            /* Print comma and space separator, except for the last column */
-            if (j < n)
-            {
-                putchar(',');
-                putchar(' ');
-
-                /* Additional space for single-digit numbers to align the table */
-                if (product < 10)
-                    putchar(' ');
+    // Loop through rows (i) and columns (j) to print the times table
+    for (i = 0; i <= n; i++) {
+        for (j = 0; j <= n; j++) {
+            printf("%d", i * j);
+            if (j < n) {
+                printf(", "); // Separate numbers by comma
             }
         }
-        /* Move to the next row after each iteration */
-        putchar('\n');
+        printf("\n"); // Move to the next row
     }
 }
 
