@@ -1,30 +1,39 @@
-#include <stdio.h>
-
+#include "main.h"
 /**
- * print_times_table - Prints the n times table, starting with 0.
- * @n: The number to print the times table for.
- *
- * Description: This function prints the times table for a given number 'n'.
- * If n is greater than 15 or less than 0, the function does not print anything.
- * The output is comma-separated values for each row, and a new line separates each row.
+ * print_times_table - prints the table of the input
+ * starting with 0
+ * @n: the value of the times table to be printed
  */
-void print_times_table(int n) {
-    int i, j;
+void print_times_table(int n)
+{
+int num, mult, prod;
 
-    // Check if n is out of range (less than 0 or greater than 15)
-    if (n < 0 || n > 15) {
-        return; // If n is out of range, do not print anything
-    }
-
-    // Loop through rows (i) and columns (j) to print the times table
-    for (i = 0; i <= n; i++) {
-        for (j = 0; j <= n; j++) {
-            printf("%d", i * j);
-            if (j < n) {
-                printf(", "); // Separate numbers by comma
-            }
-        }
-        printf("\n"); // Move to the next row
-    }
+if (n >= 0 && n <= 15)
+{
+for (num = 0; num <= n; num++)
+{
+_putchar('0');
+for (mult = 1; mult <= n; mult++)
+{
+_putchar(',');
+_putchar(' ');
+prod = num * mult;
+if (prod <= 99)
+_putchar(' ');
+if (prod <= 9)
+_putchar(' ');
+if (prod >= 100)
+{
+_putchar((prod / 100) + '0');
+_putchar(((prod / 10)) % 10 + '0');
 }
-
+else if (prod <= 99 && prod >= 10)
+{
+_putchar((prod / 10) + '0');
+}
+_putchar((prod % 10) + '0');
+}
+_putchar('\n');
+}
+}
+}
