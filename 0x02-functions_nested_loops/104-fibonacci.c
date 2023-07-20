@@ -1,40 +1,52 @@
 #include <stdio.h>
 
-/*
- * print_fibonacci_numbers - Prints the first 'count' Fibonacci numbers.
- * @count: The number of Fibonacci numbers to print.
- *
- * This function prints the first 'count' Fibonacci numbers, starting with 1 and 2,
- * separated by a comma and a space, followed by a new line.
- * It adheres to the ISO C90 standard and follows Betty coding style.
- */
-void print_fibonacci_numbers(int count) {
-    int fib1 = 1;
-    int fib2 = 2;
+/**
 
-    if (count >= 1) {
-        printf("%d", fib1); /* Print the first Fibonacci number */
-    }
+⦁ 
+main - prints the first 98 Fibonacci numbers, starting with 1 and 2
+⦁ 
+Return: 0
+*/
 
-    if (count >= 2) {
-        printf(", %d", fib2); /* Print the second Fibonacci number */
-    }
+int main(void)
+{
+int i;
+unsigned long int a = 0, b = 1, c, a1, a2, b1, b2, c1, c2;
 
-    int i;
-    for (i = 2; i < count; i++) {
-        int next_fib = fib1 + fib2;
-        printf(", %d", next_fib);
-
-        /* Update the values of fib1 and fib2 for the next iteration */
-        fib1 = fib2;
-        fib2 = next_fib;
-    }
+for (i = 0; i < 98; i++)
+{
+if (i < 91)
+{
+c = a + b;
+printf("%lu", c);
+a = b;
+b = c;
 }
-
-int main() {
-    print_fibonacci_numbers(98);
-    printf("\n");
-
-    return (0);
+else
+{
+if (i == 91)
+{
+a1 = a / 1000000000;
+a2 = a % 1000000000;
+b1 = b / 1000000000;
+b2 = b % 1000000000;
 }
-
+c1 = a1 + b1;
+c2 = a2 + b2;
+if (a2 + b2 > 999999999)
+{
+c1 += 1;
+c2 %= 1000000000;
+}
+printf("%lu%lu", c1, c2);
+a1 = b1;
+a2 = b2;
+b1 = c1;
+b2 = c2;
+}
+if (i != 97)
+printf(", ");
+}
+printf("\n");
+return (0);
+}
