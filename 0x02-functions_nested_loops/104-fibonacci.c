@@ -9,14 +9,16 @@
  * It adheres to the ISO C90 standard and follows Betty coding style.
  */
 void print_fibonacci_numbers(int count) {
-    int fib1 = 1;
-    int fib2 = 2;
+    int fib1, fib2, next_fib;
+
+    fib1 = 1;
+    fib2 = 2;
 
     printf("%d, %d", fib1, fib2); /* Print the first two Fibonacci numbers */
 
     int i;
     for (i = 2; i < count; i++) {
-        int next_fib = fib1 + fib2;
+        next_fib = fib1 + fib2;
         printf(", %d", next_fib);
 
         /* Update the values of fib1 and fib2 for the next iteration */
