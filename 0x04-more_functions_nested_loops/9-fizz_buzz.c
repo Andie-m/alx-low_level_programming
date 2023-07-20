@@ -1,11 +1,5 @@
 #include "main.h"
-/**
-*
-*factorial - calculates the factorial of a number
-*
-*@n: the number to calculate the factorial of 
-*Return: the factorial of n
-*/
+
 void fizz_buzz(void) {
 int i;
 for (i = 1; i <= 100; i++) {
