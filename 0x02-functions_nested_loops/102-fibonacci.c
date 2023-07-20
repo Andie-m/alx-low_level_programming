@@ -1,23 +1,35 @@
 #include <stdio.h>
 
-int main() {
-int fibonacci[50];
-fibonacci[0] = 1;
-fibonacci[1] = 2;
+/**
+ * main - Entry point of the program
+ *
+ * Return: Always 0 (Success)
+ */
+int main(void)
+{
+    int i;
+    long int fibonacci[50];
 
-// Calculate and store the Fibonacci numbers
-for (int i = 2; i < 50; i++) {
-fibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2];
-}
+    /* Initialize the first two Fibonacci numbers */
+    fibonacci[0] = 1; /* First Fibonacci number is 1 */
+    fibonacci[1] = 2; /* Second Fibonacci number is 2 */
 
-// Print the first 50 Fibonacci numbers
-for (int i = 0; i < 49; i++) {
-printf("%d, ", fibonacci[i]);
-}
+    /* Calculate and store the remaining Fibonacci numbers */
+    for (i = 2; i < 50; i++)
+    {
+        /* Fibonacci number is the sum of the previous two numbers */
+        fibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2];
+    }
 
-// Print the last number with a new line instead of a comma
-printf("%d\n", fibonacci[49]);
+    /* Print the Fibonacci numbers with the specified format */
+    for (i = 0; i < 49; i++)
+    {
+        /* Print each Fibonacci number followed by a comma and a space */
+        printf("%ld, ", fibonacci[i]);
+    }
+    /* Print the last Fibonacci number followed by a new line */
+    printf("%ld\n", fibonacci[49]);
 
-return 0;
+    return 0; /* Indicate successful program execution */
 }
 
