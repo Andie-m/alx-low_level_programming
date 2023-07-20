@@ -14,10 +14,11 @@ void print_fibonacci_numbers(int count) {
 
     printf("%d, %d", fib1, fib2); /* Print the first two Fibonacci numbers */
 
-    for (int i = 2; i < count; i++) {
+    int i;
+    for (i = 2; i < count; i++) {
         int next_fib = fib1 + fib2;
         printf(", %d", next_fib);
-        
+
         /* Update the values of fib1 and fib2 for the next iteration */
         fib1 = fib2;
         fib2 = next_fib;
