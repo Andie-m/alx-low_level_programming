@@ -1,36 +1,16 @@
 #include "main.h"
 
 /**
- * print_times_table - Print the n times table, starting with 0.
- * @n: The number of times.
+ * _isalpha - checks for alphabetic character
+ * @c: character to be checked
+ * Return: 1 for alphabetic character or 0 for anything else
  */
-void print_times_table(int n)
+
+int _isalpha(int c)
 {
-	int i, j, result;
-
-	if (n < 0 || n > 15)
-		return;
-
-	for (i = 0; i <= n; i++)
-	{
-		for (j = 0; j <= n; j++)
-		{
-			result = i * j;
-
-			if (j == 0)
-				_putchar('0' + result);
-			else
-			{
-				_putchar(',');
-				_putchar(' ');
-				if (result < 10)
-					_putchar(' ');
-				if (result < 100)
-					_putchar(' ');
-				_putchar('0' + result);
-			}
-		}
-		_putchar('\n');
-	}
+if ((c >= 65 && c <= 97) || (c >= 97 && c <= 122))
+{
+return (1);
 }
-
+return (0);
+}
