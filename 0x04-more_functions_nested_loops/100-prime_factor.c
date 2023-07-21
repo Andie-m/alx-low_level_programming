@@ -2,9 +2,11 @@
 #include <math.h>
 
 /**
- * prime_factor -  prints the largest prime factor #
+ * main - Entry point of the program.
  *
- *  use the standard library
+ * This function finds and prints the largest prime factor of a given number.
+ *
+ * Return: Always 0.
  */
 long largest_prime_factor(long n)
 {
