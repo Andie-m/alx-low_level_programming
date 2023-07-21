@@ -2,10 +2,11 @@
 #include <math.h>
 
 /**
+ * main - The largest prime factor of the given number.
  * largest_prime_factor - Finds the largest prime factor of a number.
  * @n: The number to find the largest prime factor for.
  *
- * Return: The largest prime factor of the given number.
+ * Return: Always 0 (success)
  */
 long largest_prime_factor(long n)
 {
@@ -36,4 +37,4 @@ long largest_prime = largest_prime_factor(number);
 
 printf("%ld\n", largest_prime);
 return (0);
-}	
+}
