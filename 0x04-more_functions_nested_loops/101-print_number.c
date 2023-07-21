@@ -19,9 +19,7 @@ _putchar('3');
 _putchar('6');
 _putchar('4');
 _putchar('8');
-return;
 }
-
 /* Handle negative numbers */
 if (n < 0)
 {
