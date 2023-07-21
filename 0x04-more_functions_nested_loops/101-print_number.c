@@ -22,7 +22,6 @@ _putchar('6');
 _putchar('4');
 _putchar('8');
 return;
-
 n = -n;
 }
 /* Recursively print each digit */
@@ -30,4 +29,3 @@ if (n / 10 != 0)
 print_number(n / 10);
 _putchar(n % 10 + '0');
 }
-
