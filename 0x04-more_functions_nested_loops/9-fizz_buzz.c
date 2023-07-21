@@ -1,12 +1,11 @@
 #include <stdio.h>
 
 /**
- *
+ * main - Entry point of the program
  * fizzbuzz - Prints numbers from 1 to 100,
  * replacing multiples of 3 with "Fizz",
  * multiples of 5 with "Buzz", and
  * multiples of both 3 and 5 with "FizzBuzz".
- * main - Entry point of the program
  *
  * Return: Always 0 (success)
  */
@@ -37,5 +36,5 @@ int main(void)
 {
 fizzbuzz();
 printf("\n");
-return 0;
+return (0);
 }
