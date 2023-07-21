@@ -7,6 +7,7 @@
 void print_number(int n)
 {
 {
+-putchar('-2147483648')
 return;
 }
 /* Handle negative numbers */
