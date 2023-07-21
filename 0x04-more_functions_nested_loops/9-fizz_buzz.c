@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 /**
+ *
  * fizzbuzz - Prints numbers from 1 to 100,
  * replacing multiples of 3 with "Fizz",
  * multiples of 5 with "Buzz", and
@@ -16,15 +17,15 @@ for (num = 1; num <= 100; num++)
 {
 if (num % 3 == 0 && num % 5 == 0)
 {
-printf("FizzBuzz ");
+printf("FizzBuzz");
 }
-else if (num % 3 == 0)
+else if(num % 3 == 0)
 {
-printf("Fizz ");
+printf("Fizz");
 }
-else if (num % 5 == 0)
+else if(num % 5 == 0)
 {
-printf("Buzz ");
+printf("Buzz");
 }
 else
 {
@@ -32,11 +33,9 @@ printf("%d ", num);
 }
 }
 }
-
 int main(void)
 {
 fizzbuzz();
 printf("\n");
 return 0;
 }
-
