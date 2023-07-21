@@ -10,8 +10,7 @@ void print_number(int n)
 if (n < 0)
 {
 _putchar('-');
-n = 147483648; /* Print the remaining digits of INT_MIN */
-}
+return;
 {
 n = -n;
 }
