@@ -6,26 +6,24 @@
  */
 void print_number(int n)
 {
-/* Handle negative numbers */
-if (n < 0)
+long m = n; /* Use a long variable to avoid overflow */
+if (m  == INT_MIN)
 {
-
 _putchar('-');
 _putchar('2');
-_putchar('1');
-_putchar('4');
-_putchar('7');
-_putchar('4');
-_putchar('8');
-_putchar('3');
-_putchar('6');
-_putchar('4');
-_putchar('8');
-return;
-n = -n;
+m = 147483648; /* Print the remaining digits of INT_MIN */
+}
+else
+{
+/* Handle negative numbers */
+if (m < 0)
+{
+_putchar('-');
+m = -m;
+}
 }
 /* Recursively print each digit */
-if (n / 10 != 0)
-print_number(n / 10);
-_putchar(n % 10 + '0');
+if (m / 10 != 0)
+print_number(m / 10);
+_putchar(m % 10 + '0');
 }
