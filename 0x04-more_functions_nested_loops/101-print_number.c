@@ -5,9 +5,7 @@
  * @n: The integer to be printed.
  */
 void print_number(int n)
-{
-if ( n  == INT_MIN)
-}
+
 {
 /* Handle negative numbers */
 if (n < 0)
