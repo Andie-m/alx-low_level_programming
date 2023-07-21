@@ -10,11 +10,8 @@ void print_number(int n)
 if (n < 0)
 {
 _putchar('-');
-{
-_putchar('2'); /* Print the first digit of INT_MIN */
 n = 147483648; /* Print the remaining digits of INT_MIN */
 }
-else
 {
 n = -n;
 }
