@@ -9,9 +9,8 @@ void print_number(int n)
 /* Handle negative numbers */
 if (n < 0)
 {
-_putchar('-');
+_putchar('0');
 n = -n;
-return;
 }
 /* Recursively print each digit */
 if (n / 10 != 0)
