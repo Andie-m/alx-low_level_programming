@@ -26,7 +26,7 @@ factor = (factor == 2) ? 3 : factor + 2;
 }
 }
 
-return largest;
+return (largest);
 }
 
 int main(void)
