@@ -13,7 +13,8 @@ char *_strcpy(char *dest, char *src)
 {
 int i;
 
-/** Loop through the source string and copy each character
+/**
+ * Loop through the source string and copy each character
  * to the destination buffer
  */
 for (i = 0; src[i] != '\0'; i++)
