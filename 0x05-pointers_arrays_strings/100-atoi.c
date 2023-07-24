@@ -20,38 +20,44 @@ int is_digit(char c)
  */
 int _atoi(char *s)
 {
-    int i, sign, num;
+    int i = 0, sign = 1, num = 0;
 
-    /* Initialize the sign and the number to 1 and 0 respectively */
-    sign = 1;
-    num = 0;
+    /* Check if the string is empty */
+    if (s == NULL || *s == '\0')
+        return 0;
+
+    /* Skip leading white spaces */
+    while (s[i] == ' ')
+        i++;
+
+    /* Check for a sign */
+    if (s[i] == '-')
+    {
+        sign = -1;
+        i++;
+    }
+    else if (s[i] == '+')
+    {
+        i++;
+    }
 
     /* Loop through the string until the end */
-    for (i = 0; s[i] != '\0'; i++)
+    while (s[i] != '\0')
     {
-        /* If the character is a minus sign, flip the sign */
-        if (s[i] == '-')
-        {
-            sign *= -1;
-        }
-        /* If the character is a digit, add it to the number */
-        if (is_digit(s[i]))
-        {
-            int digit = s[i] - '0';
+        /* If the character is not a digit, break the loop */
+        if (!is_digit(s[i]))
+            break;
 
-            /* Check for integer overflow before adding the digit */
-            if (num > INT_MAX / 10 || (num == INT_MAX / 10 && digit > INT_MAX % 10))
-            {
-                return (sign == 1 ? INT_MAX : INT_MIN);
-            }
+        int digit = s[i] - '0';
 
-            num = num * 10 + digit;
-            /* If the next character is not a digit, break the loop */
-            if (!is_digit(s[i + 1]))
-            {
-                break;
-            }
+        /* Check for integer overflow before adding the digit */
+        if (num > INT_MAX / 10 || (num == INT_MAX / 10 && digit > INT_MAX % 10))
+        {
+            return (sign == 1 ? INT_MAX : INT_MIN);
         }
+
+        num = num * 10 + digit;
+        i++;
     }
 
     /* Return the number times the sign */
