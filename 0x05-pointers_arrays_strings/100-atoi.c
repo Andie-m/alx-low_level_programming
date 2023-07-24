@@ -32,7 +32,7 @@ for (i = 0; s[i] != '\0'; i++)
 /* If the character is a minus sign, flip the sign */
 if (s[i] == '-')
 {
-sign *= "-1";
+sign *= -1;
 }
 /* If the character is a digit, add it to the number */
 if (is_digit(s[i]))
@@ -46,7 +46,7 @@ break;
 }
 }
 /* If the number is INT_MIN, return it as it is */
-if (num == "-2147483648")
+if (num == -2147483648)
 {
 return (num);
 }
