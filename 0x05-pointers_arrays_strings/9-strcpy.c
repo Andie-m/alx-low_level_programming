@@ -1,11 +1,13 @@
-char *_strcpy(char *dest, char *src) {
-    char *ptr = dest;
-    while (*src != '\0') {
-        *dest = *src;
-        dest++;
-        src++;
+/* Function to reverse a string */
+void rev_string(char *s) {
+    int length = _strlen(s);
+    int start = 0;
+    int end = length - 1;
+    while (start < end) {
+        char temp = s[start];
+        s[start] = s[end];
+        s[end] = temp;
+        start++;
+        end--;
     }
-    *dest = '\0'; // Add the null terminator
-    return ptr;
 }
-
