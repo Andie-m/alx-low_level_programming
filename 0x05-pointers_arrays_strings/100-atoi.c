@@ -1,5 +1,5 @@
 #include "main.h"
-#include <limits.h>
+#include <stddef.h> // Add this include for NULL
 
 /**
  * is_digit - A function that checks if a character is a digit.
@@ -48,9 +48,9 @@ int _atoi(char *s)
         if (!is_digit(s[i]))
             break;
 
-        int digit = s[i] - '0';
-
         /* Check for integer overflow before adding the digit */
+        int digit = s[i] - '0'; // Move the declaration to the beginning of the block
+
         if (num > INT_MAX / 10 || (num == INT_MAX / 10 && digit > INT_MAX % 10))
         {
             return (sign == 1 ? INT_MAX : INT_MIN);
