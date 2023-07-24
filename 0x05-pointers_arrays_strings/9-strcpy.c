@@ -13,10 +13,7 @@ char *_strcpy(char *dest, char *src)
 {
 int i;
 
-/**
- * Loop through the source string and copy each character
- * to the destination buffer
- */
+/* Loop through source string and copy each character to destination buffer */
 for (i = 0; src[i] != '\0'; i++)
 {
 dest[i] = src[i];
