@@ -1,13 +1,15 @@
 /**
- * _puts - Prints a string followed by a new line
- * @str: Pointer to the string
+ * print_rev - Prints a string in reverse followed by a new line
+ * @s: Pointer to the string
  */
-void _puts(char *str)
+void print_rev(char *s)
 {
-while (*str != '\0')
+int length = _strlen(s);
+while (length >= 0)
 {
-_putchar(*str);
-str++;
+_putchar(s[length]);
+length--;
 }
 _putchar('\n');
 }
+
