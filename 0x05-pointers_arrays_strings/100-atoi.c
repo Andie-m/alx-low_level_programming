@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
-* is_digit - A function that checks if a character is a digit.
-* @c: The character to be checked.
-*
-* Return: 1 if the character is a digit, 0 otherwise.
-*/
+ * is_digit - A function that checks if a character is a digit.
+ * @c: The character to be checked.
+ *
+ * Return: 1 if the character is a digit, 0 otherwise.
+ */
 
 int is_digit(char c)
 {
@@ -13,11 +13,11 @@ return (c >= '0' && c <= '9');
 }
 
 /**
-* _atoi - A function that converts a string to an integer.
-* @s: The string to be converted.
-*
-* Return: The integer representation of the string.
-*/
+ * _atoi - A function that converts a string to an integer.
+ * @s: The string to be converted.
+ *
+ * Return: The integer representation of the string.
+ */
 int _atoi(char *s)
 {
 int i, sign, num;
@@ -34,10 +34,10 @@ if (s[i] == '-')
 {
 sign *= -1;
 }
-/* If the character is a digit, subtract it from the number */
+/* If the character is a digit, add it to the number */
 if (is_digit(s[i]))
 {
-num = num * 10 - (s[i] - '0'); /* Change this line */
+num = num * 10 + (s[i] - '0');
 /* If the next character is not a digit, break the loop */
 if (!is_digit(s[i + 1]))
 {
@@ -51,5 +51,5 @@ if (num == -2147483648)
 return (num);
 }
 /* Otherwise, return the number times the sign */
-return (num * sign);
+return (num *sign);
 }
