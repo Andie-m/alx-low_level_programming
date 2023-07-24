@@ -12,6 +12,8 @@ while (s[length] != '\0')
 length++;
 }
 
+length--; /* Move back one position to avoid printing the null terminator */
+
 while (length >= 0)
 {
 _putchar(s[length]);
