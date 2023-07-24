@@ -1,12 +1,23 @@
 #include "main.h"
 
-/* A function that checks if a character is a digit */
+/**
+ * is_digit - A function that checks if a character is a digit.
+ * @c: The character to be checked.
+ *
+ * Return: 1 if the character is a digit, 0 otherwise.
+ */
+
 int is_digit(char c)
 {
 return (c >= '0' && c <= '9');
 }
 
-/* A function that converts a string to an integer */
+/**
+ * _atoi - A function that converts a string to an integer.
+ * @s: The string to be converted.
+ *
+ * Return: The integer representation of the string.
+ */
 int _atoi(char *s)
 {
 int i, sign, num;
