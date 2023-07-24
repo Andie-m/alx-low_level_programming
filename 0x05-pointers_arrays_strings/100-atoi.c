@@ -1,8 +1,6 @@
 #include "main.h"
 
-/**
- *  A function that checks if a character is a digit
- */
+/* A function that checks if a character is a digit */
 int is_digit(char c)
 {
 return (c >= '0' && c <= '9');
@@ -36,6 +34,11 @@ break;
 }
 }
 }
-/* Return the number times the sign */
+/* If the number is INT_MIN, return it as it is */
+if (num == -2147483648)
+{
+return (num);
+}
+/* Otherwise, return the number times the sign */
 return (num * sign);
 }
