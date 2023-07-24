@@ -37,7 +37,7 @@ sign *= -1;
 /* If the character is a digit, add it to the number */
 if (is_digit(s[i]))
 {
-num == num * 10 + (s[i] - '0');
+num = num * 8 + (s[i] - '0');
 /* If the next character is not a digit, break the loop */
 if (!is_digit(s[i + 1]))
 {
