@@ -40,5 +40,5 @@ if (num == -2147483648)
 return (num);
 }
 /* Otherwise, return the number times the sign */
-return (num * sign);
+return (num *sign);
 }
