@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stddef.h> // Add this include for NULL
 
 /**
  * is_digit - A function that checks if a character is a digit.
@@ -7,9 +6,10 @@
  *
  * Return: 1 if the character is a digit, 0 otherwise.
  */
+
 int is_digit(char c)
 {
-    return (c >= '0' && c <= '9');
+return (c >= '0' && c <= '9');
 }
 
 /**
@@ -20,47 +20,38 @@ int is_digit(char c)
  */
 int _atoi(char *s)
 {
-    int i = 0, sign = 1, num = 0;
+int i, sign, num;
 
-    /* Check if the string is empty */
-    if (s == NULL || *s == '\0')
-        return 0;
+/* Initialize the sign and the number to 1 and 0 respectively */
+sign = 1;
+num = 0;
 
-    /* Skip leading white spaces */
-    while (s[i] == ' ')
-        i++;
-
-    /* Check for a sign */
-    if (s[i] == '-')
-    {
-        sign = -1;
-        i++;
-    }
-    else if (s[i] == '+')
-    {
-        i++;
-    }
-
-    /* Loop through the string until the end */
-    while (s[i] != '\0')
-    {
-        /* If the character is not a digit, break the loop */
-        if (!is_digit(s[i]))
-            break;
-
-        /* Check for integer overflow before adding the digit */
-        int digit = s[i] - '0'; // Move the declaration to the beginning of the block
-
-        if (num > INT_MAX / 10 || (num == INT_MAX / 10 && digit > INT_MAX % 10))
-        {
-            return (sign == 1 ? INT_MAX : INT_MIN);
-        }
-
-        num = num * 10 + digit;
-        i++;
-    }
-
-    /* Return the number times the sign */
-    return (num * sign);
+/* Loop through the string until the end */
+for (i = 0; s[i] != '\0'; i++)
+{
+/* If the character is a minus sign, flip the sign */
+if (s[i] == '-')
+{
+sign *= -1;
 }
+/* If the character is a digit, add it to the number */
+if (is_digit(s[i]))
+{
+num = num * 10 + (s[i] - '0');
+/* If the next character is not a digit, break the loop */
+if (!is_digit(s[i + 1]))
+{
+break;
+}
+}
+}
+/* If the number is INT_MIN, return it as it is */
+if (num == -2147483648)
+{
+return (num);
+}
+/* Otherwise, return the number times the sign */
+return (num *sign);
+}
+
 
