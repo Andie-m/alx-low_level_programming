@@ -2,18 +2,13 @@
  * rev_string - Reverses a string
  * @s: Pointer to the string
  */
-void rev_string(char *s)
-{
-    int length = _strlen(s);
-    int start = 0;
-    int end = length - 1;
-    while (start < end)
-    {
-        char temp = s[start];
-        s[start] = s[end];
-        s[end] = temp;
-        start++;
-        end--;
+#include "main.h"
+
+void print_rev(char *s) {
+    int len = _strlen(s);
+    while (len > 0) {
+        _putchar(s[len - 1]);
+        len--;
     }
 }
 
