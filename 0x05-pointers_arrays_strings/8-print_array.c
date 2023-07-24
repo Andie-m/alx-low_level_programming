@@ -1,23 +1,21 @@
 #include "main.h"
-#include <stdio.h> /* Add the include for the printf function */
 
-/**
- * print_array - Prints n elements of an array of integers followed by a new line
- * @a: Pointer to the array of integers
- * @n: Number of elements to be printed
- */
+/* A function that prints n elements of an array of integers, followed by a new line */
 void print_array(int *a, int n)
 {
-    if (n <= 0 || a == NULL)
-        return;
+int i;
 
-    for (int i = 0; i < n; i++)
-    {
-        _putchar('0' + a[i]); /* Use _putchar to print individual digits */
-        if (i < n - 1)
-            _putchar(','); /* Print comma after each element except the last one */
-        _putchar(' '); /* Print space after each element */
-    }
-    _putchar('\n'); /* Print a new line after all elements are printed */
+/* Loop through the array and print each element */
+for (i = 0; i < n; i++)
+{
+/* Print the element and a comma, except for the last one */
+_putchar(a[i] + '0');
+if (i < n - 1)
+{
+_putchar(',');
+_putchar(' ');
 }
-
+}
+/* Print a new line */
+_putchar('\n');
+}
