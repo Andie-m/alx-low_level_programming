@@ -1,25 +1,31 @@
+#include "main.h"
+#include <stdlib.h>
+#include <time.h>
+
+/* Define a pool of valid characters for the password */
+const char VALID_CHARACTERS[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
 /**
- * _atoi - Converts a string to an integer
- * @s: Pointer to the string
- * Return: The converted integer
+ * generate_password - Generates a random valid password
+ * @password: Pointer to the buffer to store the password
+ * @length: Length of the password to be generated
  */
-int _atoi(char *s)
+void generate_password(char *password, int length)
 {
-    int sign = 1;
-    int result = 0;
-    while (*s != '\0')
+    int i;
+    int pool_size = sizeof(VALID_CHARACTERS) - 1;
+
+    /* Seed the random number generator with the current time */
+    srand((unsigned int)time(NULL));
+
+    /* Generate the password */
+    for (i = 0; i < length; i++)
     {
-        if (*s == '-')
-            sign = -sign;
-        else if (*s >= '0' && *s <= '9')
-            result = result * 10 + (*s - '0');
-        else if (result != 0)
-        {
-            /* If a non-digit character is encountered after digits, break the loop */
-            break;
-        }
-        s++;
+        int index = rand() % pool_size;
+        password[i] = VALID_CHARACTERS[index];
     }
-    return result * sign;
+
+    /* Null-terminate the password string */
+    password[length] = '\0';
 }
 
