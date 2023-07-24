@@ -1,4 +1,5 @@
 #include "main.h"
+#include <limits.h>
 
 /**
  * is_digit - A function that checks if a character is a digit.
