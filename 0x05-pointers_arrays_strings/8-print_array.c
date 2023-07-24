@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h> /* Add the include for the printf function */
 
 /**
  * print_array - Prints n elements of an array of integers followed by a new line
@@ -12,10 +13,11 @@ void print_array(int *a, int n)
 
     for (int i = 0; i < n; i++)
     {
-        printf("%d", a[i]);
+        _putchar('0' + a[i]); /* Use _putchar to print individual digits */
         if (i < n - 1)
-            printf(", ");
+            _putchar(','); /* Print comma after each element except the last one */
+        _putchar(' '); /* Print space after each element */
     }
-    printf("\n");
+    _putchar('\n'); /* Print a new line after all elements are printed */
 }
 
