@@ -6,16 +6,21 @@
  */
 void rev_string(char *s)
 {
-    int length = _strlen(s);
-    int start = 0;
-    int end = length - 1;
-    while (start < end)
-    {
-        char temp = s[start];
-        s[start] = s[end];
-        s[end] = temp;
-        start++;
-        end--;
-    }
+int length = 0;
+char temp;
+
+/* Calculate the length of the string */
+while (s[length] != '\0')
+{
+length++;
+}
+
+/* Swap characters from both ends until the middle of the string */
+for (int i = 0; i < length / 2; i++)
+{
+temp = s[i];
+s[i] = s[length - i - 1];
+s[length - i - 1] = temp;
+}
 }
 
