@@ -9,13 +9,12 @@ int i;
 for (i = 0; i < n; i++)
 {
 /* Print the element and a comma, except for the last one */
-_putchar(a[i] + '0');
+printf("%d", a[i]);
 if (i < n - 1)
 {
-_putchar(',');
-_putchar(' ');
+printf(", ");
 }
 }
 /* Print a new line */
-_putchar('\n');
+printf("\n");
 }
