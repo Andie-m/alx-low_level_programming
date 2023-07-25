@@ -1,57 +1,30 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
- * is_digit - A function that checks if a character is a digit.
- * @c: The character to be checked.
+ * main - check the code
  *
- * Return: 1 if the character is a digit, 0 otherwise.
+ * Return: Always 0.
  */
+int main(void)
+{
+int nb;
 
-int is_digit(char c)
-{
-return (c >= '0' && c <= '9');
+nb = _atoi("98");
+printf("%d\n", nb);
+nb = _atoi("-402");
+printf("%d\n", nb);
+nb = _atoi("          ------++++++-----+++++--98");
+printf("%d\n", nb);
+nb = _atoi("214748364");
+printf("%d\n", nb);
+nb = _atoi("0");
+printf("%d\n", nb);
+nb = _atoi("Suite 402");
+printf("%d\n", nb);
+nb = _atoi("         +      +    -    -98 Battery Street; San Francisco, CA 94111 - USA             ");
+printf("%d\n", nb);
+nb = _atoi("---++++ -++ Sui - te -   402 #cisfun :)");
+printf("%d\n", nb);
+return (0);
 }
-
-/**
- * _atoi - A function that converts a string to an integer.
- * @s: The string to be converted.
- *
- * Return: The integer representation of the string.
- */
-int _atoi(char *s)
-{
-int i, sign, num;
-
-/* Initialize the sign and the number to 1 and 0 respectively */
-sign = 1;
-num = 0;
-
-/* Loop through the string until the end */
-for (i = 0; s[i] != '\0'; i++)
-{
-/* If the character is a minus sign, flip the sign */
-if (s[i] == '-')
-{
-sign *= -1;
-}
-/* If the character is a digit, add it to the number */
-if (is_digit(s[i]))
-{
-num = num * 10 + (s[i] - '0');
-/* If the next character is not a digit, break the loop */
-if (!is_digit(s[i + 1]))
-{
-break;
-}
-}
-}
-/* If the number is INT_MIN, return it as it is */
-if (num == -2147483648)
-{
-return (num);
-}
-/* Otherwise, return the number times the sign */
-return (num *sign);
-}
-
-
