@@ -7,17 +7,17 @@
  */
 void puts2(char *str)
 {
-        int i;
-        int k = 0;
+int i;
+int k = 0;
 
-        while (str[k] != '\0')
-        {
-        k++;
-        }
+while (str[k] != '\0')
+{
+k++;
+}
 
-        for (i = 0; i < k; i += 2)
-        {
-        _putchar(str[i]);
-        }
-        _putchar('\n');
+for (i = 0; i < k; i += 2)
+{
+_putchar(str[i]);
+}
+_putchar('\n');
 }
