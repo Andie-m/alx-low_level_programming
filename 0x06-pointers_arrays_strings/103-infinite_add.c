@@ -8,87 +8,57 @@
 * @size_r: the buffer size
 * Return: a pointer to the result or 0 if it can not be stored
 */
-int _putchar(char c);
+char *infinite_add(char *n1, char *n2, char *r, int size_r)
+{
+int i, j, k, l, m, n;
 
-char *infinite_add(char *n1, char *n2, char *r, int size_r);
+/* find the length of n1 and n2 */
+for (i = 0; n1[i] != '\0'; i++)
+;
+for (j = 0; n2[j] != '\0'; j++)
+;
 
-int main() {
-char num1[] = "123456789";
-char num2[] = "987654321";
-char result[20];
-
-char *res = infinite_add(num1, num2, result, sizeof(result));
-
-if (res != NULL) {
-for (int i = 0; res[i]; i++) {
-_putchar(res[i]);
-}
-_putchar('\n');
-} else {
-_putchar('0');
-_putchar('\n');
-}
-
+/* if the result is longer than size_r, return 0 */
+if (i > size_r || j > size_r || i + 1 == size_r || j + 1 == size_r)
 return (0);
+
+/* initialize k, l and m to zero */
+k = l = m = 0;
+
+/* loop from right to left through n1 and n2 */
+for (i--, j--, n = 0; n < size_r - 1; i--, j--, n++)
+{
+/* add the digits and the carry */
+k = (i >= 0 ? n1[i] - '0' : 0) + (j >= 0 ? n2[j] - '0' : 0) + l;
+
+/* if the sum is greater than 9, set the carry and the remainder */
+if (k > 9)
+{
+l = 1;
+k %= 10;
+}
+else
+l = 0;
+
+/* convert the sum to a character and store it in r */
+r[n] = k + '0';
 }
 
-int _putchar(char c) {
-return putchar(c);
+/* if there is a carry at the end, store it in r */
+if (l == 1)
+r[n++] = l + '0';
+
+/* null-terminate r */
+r[n] = '\0';
+
+/* reverse r */
+for (i = 0, j = n - 1; i < j; i++, j--)
+{
+k = r[i];
+r[i] = r[j];
+r[j] = k;
 }
 
-char *infinite_add(char *n1, char *n2, char *r, int size_r) {
-int len1 = 0, len2 = 0, carry = 0;
-char *ptr1 = n1, *ptr2 = n2;
-char *res = r;
-
-while (*ptr1) {
-len1++;
-ptr1++;
-}
-
-while (*ptr2) {
-len2++;
-ptr2++;
-}
-
-ptr1 = n1 + len1 - 1;
-ptr2 = n2 + len2 - 1;
-r[size_r - 1] = '\0'; // Null-terminate the result string
-
-while (size_r - 1 > 0) {
-int sum = carry;
-
-if (ptr1 >= n1) {
-sum += *ptr1 - '0';
-ptr1--;
-}
-
-if (ptr2 >= n2) {
-sum += *ptr2 - '0';
-ptr2--;
-}
-
-carry = sum / 10;
-sum %= 10;
-
-r[size_r - 2] = sum + '0';
-size_r--;
-
-if (ptr1 < n1 && ptr2 < n2 && carry == 0) {
-break;
-}
-}
-
-if (carry != 0 || (size_r - 1 == 0 && (ptr1 >= n1 || ptr2 >= n2))) {
-return (NULL);
-}
-
-while (*r) {
-if (*r != '0') {
-break;
-}
-r++;
-}
-
-return(r);
+/* return r */
+return (r);
 }
