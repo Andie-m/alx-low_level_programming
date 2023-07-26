@@ -1,50 +1,47 @@
-#include "main.h"
+#include <stdio.h>
+#include <ctype.h>
+
 /**
- * print_buffer - Prints the content of a buffer.
- * @b: The buffer to print.
- * @size: The number of bytes to print.
- */
+* print_buffer - prints a buffer
+* @b: pointer to the buffer
+* @size: size of the buffer in bytes
+*/
 void print_buffer(char *b, int size)
 {
 int i, j;
 
+if (size <= 0)
+{
+putchar('\n');
+return;
+}
+
 for (i = 0; i < size; i += 10)
 {
-_putchar('0' + ((i >> 24) & 0xF));
-_putchar('0' + ((i >> 16) & 0xF));
-_putchar('0' + ((i >> 8) & 0xF));
-_putchar('0' + (i & 0xF));
-_putchar(':');
-_putchar(' ');
+/* print the position of the first byte of the line */
+printf("%08x: ", i);
 
-for (j = 0; j < 10; j++)
+/* print the hexadecimal content of the buffer, 2 bytes at a time */
+for (j = i; j < i + 10; j++)
 {
-if (i + j < size)
-{
-_putchar('0' + ((b[i + j] >> 4) & 0xF));
-_putchar('0' + (b[i + j] & 0xF));
-}
+if (j < size)
+printf("%02x", b[j]);
 else
-{
-_putchar(' ');
-_putchar(' ');
+printf("  ");
+if (j % 2 != 0)
+putchar(' ');
 }
 
-if (j % 2)
-_putchar(' ');
+/* print the content of the buffer as characters */
+for (j = i; j < i + 10; j++)
+{
+if (j < size && isprint(b[j]))
+putchar(b[j]);
+else if (j < size)
+putchar('.');
 }
 
-for (j = 0; j < 10; j++)
-{
-if (i + j < size)
-{
-if (b[i + j] >= 32 && b[i + j] <= 126)
-_putchar(b[i + j]);
-else
-_putchar('.');
-}
-}
-
-_putchar('\n');
+/* print a new line */
+putchar('\n');
 }
 }
