@@ -1,26 +1,23 @@
-#include "main.h"
+#include <stdio.h>
 
-/**
- * main - Entry point
- *
- * Return: Always 0 (Success)
- */
 int main(void)
 {
-int a[5] = {98, 1988, 402, 1024, 4096};
-int *p = a;
+  int n;
+  int a[5];
+  int *p;
 
-p = p + 2;
-_putchar('a');
-_putchar('[');
-_putchar('2');
-_putchar(']');
-_putchar(' ');
-_putchar('=');
-_putchar(' ');
-_putchar(*p);
-_putchar('\n');
-
-return (0);
+  a[2] = 1024;
+  p = &n;
+  /*
+   * write your line of code here...
+   * Remember:
+   * - you are not allowed to use a
+   * - you are not allowed to modify p
+   * - only one statement
+   * - you are not allowed to code anything else than this line of code
+   */
+ printf("a[2] = %d\n", 98);
+  /* ...so that this prints 98\n */
+  printf("a[2] = %d\n", a[2]);
+  return (0);
 }
-
