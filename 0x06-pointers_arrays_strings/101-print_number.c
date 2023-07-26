@@ -3,6 +3,8 @@
 /**
  * print_number - Prints an integer using _putchar.
  * @n: The integer to print.
+ *
+ *  Return:void print_number(int n);
  */
 void print_number(int n)
 {
