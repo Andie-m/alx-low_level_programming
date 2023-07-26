@@ -5,20 +5,23 @@
  * @dest: The destination string.
  * @src: The source string.
  *
- * Return: Pointer to the resulting string dest.
+ * Return: A pointer to the resulting string dest.
  */
 char *_strcat(char *dest, char *src)
 {
-char *ptr = dest;
-while (*dest != '\0')
-{
+char *result = dest;
+
+while (*dest)
 dest++;
-}
-while (*src != '\0') {
+while (*src)
+{
 *dest = *src;
 dest++;
 src++;
 }
+
 *dest = '\0';
-return (ptr);
+
+return result;
 }
+
