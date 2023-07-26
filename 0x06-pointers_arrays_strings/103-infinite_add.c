@@ -7,7 +7,8 @@
  * @r: The buffer to store the result.
  * @size_r: The size of the buffer.
  *
- * Return: A pointer to the result, or 0 if the result cannot be stored in r.
+ * Return: A pointer to the result, or 0 if the
+ * result cannot be stored in r.
  */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {

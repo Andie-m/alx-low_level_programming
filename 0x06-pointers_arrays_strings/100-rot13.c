@@ -7,25 +7,25 @@
  */
 char *rot13(char *str)
 {
-    char *ptr = str;
-    char *rot13_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-    char *rot13_codes = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+char *ptr = str;
+char *rot13_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+char *rot13_codes = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-    while (*ptr)
-    {
-        int i;
+while (*ptr)
+{
+int i;
 
-        for (i = 0; rot13_chars[i]; i++)
-        {
-            if (*ptr == rot13_chars[i])
-            {
-                *ptr = rot13_codes[i];
-                break;
-            }
-        }
+for (i = 0; rot13_chars[i]; i++)
+{
+if (*ptr == rot13_chars[i])
+{
+*ptr = rot13_codes[i];
+break;
+}
+}
 
-        ptr++;
-    }
+ptr++;
+}
 
-    return str;
+return (str);
 }
