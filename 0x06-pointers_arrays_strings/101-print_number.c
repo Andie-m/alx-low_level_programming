@@ -1,36 +1,34 @@
 #include "main.h"
 
 /**
- * print_number - Prints an integer.
+ * print_number - Prints an integer using _putchar.
  * @n: The integer to print.
  */
 void print_number(int n)
 {
-int num_digits = 0;
-int temp = n;
-int divisor = 1;
+int num_digits, div;
 
-if (n == 0)
+num_digits = 1;
+div = 1;
+
+if (n < 0)
 {
-_putchar('0');
-return;
+_putchar('-');
+n = -n;
 }
-while (temp != 0)
+
+/* Calculate the number of digits in the number */
+while ((n / div) >= 10)
 {
+div *= 10;
 num_digits++;
-temp /= 10;
 }
 
-for (int i = 1; i < num_digits; i++)
-divisor *= 10;
-
-while (divisor != 0)
+/* Print each digit */
+while (div != 0)
 {
-int digit = n / divisor;
-_putchar(digit + '0');
-
-n %= divisor;
-divisor /= 10;
+_putchar('0' + (n / div));
+n %= div;
+div /= 10;
 }
 }
-
