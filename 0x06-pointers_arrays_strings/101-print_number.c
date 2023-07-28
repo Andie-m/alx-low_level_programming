@@ -4,14 +4,21 @@
 * print_number - prints an integer
 * @n: the integer to print
 */
-void print_number(long n)
+void print_number(int n)
 {
-long i, j, k, d;
+int i, j, k, d;
 
 /* if n is negative, print a minus sign and make it positive */
 if (n < 0)
 {
 _putchar('-');
+if(n == INT_MIN)
+{
+n = -(n / 10);
+putchar('8');
+}else
+
+{
 n = -n;
 }
 
