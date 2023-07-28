@@ -4,9 +4,9 @@
 * print_number - prints an integer
 * @n: the integer to print
 */
-void print_number(int n)
+void print_number(long n)
 {
-int i, j, k, d;
+long i, j, k, d;
 
 /* if n is negative, print a minus sign and make it positive */
 if (n < 0)
