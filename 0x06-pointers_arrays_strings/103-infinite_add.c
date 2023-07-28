@@ -9,51 +9,40 @@
 * Return: a pointer to the result or 0 if it can not be stored
 */
 
-char *infinite_add(char *n1, char *n2, char *r, int size_r) {
-    int i, j, k, l, m, n;
+char *infinite_add(char *n1, char *n2,
+		char *r, int size_r)
+{
+int i = strlen(n1) - 1;
+int j = strlen(n2) - 1;
+int carry = 0;
+int k = 0;
 
-    for (i = 0; n1[i] != '\0'; i++);
-    for (j = 0; n2[j] != '\0'; j++);
-
-    if (i > size_r || j > size_r || i + 2 > size_r || j + 2 > size_r)
-        return (0);
-
-    k = l = m = 0;
-
-    for (i--, j--, n = 0; n < size_r - 1; i--, j--, n++) {
-        k = (i >= 0 ? n1[i] - '0' : 0) + (j >= 0 ? n2[j] - '0' : 0) + l;
-
-        if (k > 9) {
-            l = 1;
-            k %= 10;
-        } else
-            l = 0;
-
-        r[n] = k + '0';
-    }
-
-    if (l == 1) {
-        if (n >= size_r)
-            return (0);
-        r[n++] = l + '0';
-    }
-
-    if (n >= size_r)
-        return (0);
-
-    r[n] = '\0';
-
-    /* Remove leading zeros and reverse r */
-    for (i = 0; r[i] == '0'; i++);
-    for (j = 0; r[i]; i++, j++)
-        r[j] = r[i];
-    r[j] = '\0';
-
-    for (i = 0, j = j - 1; i < j; i++, j--) {
-        k = r[i];
-        r[i] = r[j];
-        r[j] = k;
-    }
-
-    return (r);
+while (i >= 0 || j >= 0 || carry > 0) {
+if (k >= size_r - 1) {
+return (0);
 }
+
+int digit1 = i >= 0 ? n1[i] - '0' : 0;
+int digit2 = j >= 0 ? n2[j] - '0' : 0;
+int sum = digit1 + digit2 + carry;
+r[k] = (sum % 10) + '0';
+carry = sum / 10;
+
+i--;
+j--;
+k++;
+}
+
+r[k] = '\0';
+
+for (int start = 0, end = k - 1;
+start < end; start++, end--)
+{
+char temp = r[start];
+r[start] = r[end];
+r[end] = temp;
+}
+
+return (r);
+}
+
