@@ -1,92 +1,62 @@
 #include "main.h"
 
 /**
-* infinite_add - adds two numbers
-* @n1: the first number
-* @n2: the second number
-* @r: the buffer to store the result
-* @size_r: the buffer size
-* Return: a pointer to the result or 0 if it can not be stored
-*/
-
-char *infinite_add(char *n1, char *n2, char *r, int size_r)
+ * infinite_add - Adds two numbers.
+ *
+ * @n1: The first number as a string.
+ * @n2: The second number as a string.
+ * @r: The buffer to store the result.
+ * @size_r: The size of the buffer.
+ *
+ * Return: A pointer to the result, or 0 if the
+ *         result cannot be stored in r.
+ */
+char infinite_add(char n1, char n2, char r, int size_r)
 {
-int i, j, k, l, m, n;
 int carry = 0;
+int len1 = 0, len2 = 0, max_len = 0;
+int i, j, k;
 
-for (i = 0; n1[i] != '\0'; i++);
+while (n1[len1])
+len1++;
+while (n2[len2])
+len2++;
 
-for (j = 0; n2[j] != '\0'; j++);
+max_len = (len1 > len2) ? len1 : len2;
 
-if (i > size_r || j > size_r)
+if (size_r <= max_len + 1)
 return (0);
+
+i = len1 - 1;
+j = len2 - 1;
+k = max_len;
+
+while (i >= 0 || j >= 0 || carry)
+{
+int sum = carry;
+if (i >= 0)
+sum += n1[i] - '0';
+if (j >= 0)
+sum += n2[j] - '0';
+
+r[k] = (sum % 10) + '0';
+carry = sum / 10;
 
 i--;
 j--;
-m = 0;
-
-for (k = i, l = j; k >= 0 && l >= 0;
-k--, l--, m++)
-{
-n = (n1[k] - '0') + (n2[l] - '0') +
-carry;
-if (n > 9)
-{
-r[m] = (n % 10) + '0';
-carry = 1;
-}
-else
-{
-r[m] = n + '0';
-carry = 0;
-}
-}
-while (k >= 0)
-{
-n = (n1[k] - '0') + carry;
-if (n > 9)
-{
-r[m] = (n % 10) + '0';
-carry = 1;
-}
-else
-{
-r[m] = n + '0';
-carry = 0;
-}
-m++;
 k--;
 }
-while (l >= 0)
+
+if (k != -1)
 {
-n = (n2[l] - '0') + carry;
-if (n > 9)
-{
-r[m] = (n % 10) + '0';
-carry = 1;
+for (i = max_len; i >= 0; i--)
+r[i + 1] = r[i];
+r[0] = carry + '0';
+r[max_len + 1] = '\0';
 }
 else
 {
-r[m] = n + '0';
-carry = 0;
-}
-m++;
-l--;
-}
-if (carry == 1)
-{
-r[m] = 1 + '0';
-m++;
-}
-if (m + 1 >= size_r)
-return (0);
-r[m] = '\0';
-
-for (k = 0, l = m - 1; k < l; k++, l--)
-{
-n = r[k];
-r[k] = r[l];
-r[l] = n;
+r[max_len + 1] = '\0';
 }
 return (r);
 }
