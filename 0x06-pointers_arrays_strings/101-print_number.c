@@ -12,13 +12,6 @@ int i, j, k, d;
 if (n < 0)
 {
 _putchar('-');
-if(n == INT_MIN)
-{
-n = -(n / 10);
-putchar('8');
-}else
-
-{
 n = -n;
 }
 
