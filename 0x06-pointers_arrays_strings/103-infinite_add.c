@@ -12,7 +12,7 @@ int i, j, k, l, m, n;
 for (i = 0; n1[i] != '\0'; i++);
 for (j = 0; n2[j] != '\0'; j++);
 if (i > size_r || j > size_r || i + 2 > size_r || j + 2 > size_r)
-return NULL;
+return (NULL);
 k = l = m = 0;
 for (i--, j--, n = 0; n < size_r - 1; i--, j--, n++) {
 k = (i >= 0 ? n1[i] - '0' : 0) + (j >= 0 ? n2[j] - '0' : 0) + l;
@@ -24,7 +24,7 @@ l = 0;}
 r[n] = k + '0';}
 if (l == 1) {
 if (n + 1 >= size_r)
-return NULL;
+return (NULL);
 r[n++] = l + '0';
 }
 r[n] = '\0';
@@ -36,5 +36,5 @@ for (i = 0, j = n - 1; i < j; i++, j--) {
 k = r[i];
 r[i] = r[j];
 r[j] = k;}
-return r;
+return (r);
 }
