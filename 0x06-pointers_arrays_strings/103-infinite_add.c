@@ -7,43 +7,34 @@
 * @size_r: the buffer size
 * Return: a pointer to the result or 0 if it can not be stored
 */
-char *infinite_add(char *n1, char *n2, char *r, int size_r)
-{
-int len1 = strlen(n1);
-int len2 = strlen(n2);
-int carry = 0;
-int i = 0;
-int sum;
-if (size_r <= len1 || size_r <= len2)
-return (0);
-while (len1 > 0 || len2 > 0)
-{
-sum = carry;
-if (len1 > 0)
-{
-sum += n1[len1 - 1] - '0';
-len1--;
+char *infinite_add(char *n1, char *n2, char *r, int size_r) {
+int i, j, k, l, m, n;
+for (i = 0; n1[i] != '\0'; i++);
+for (j = 0; n2[j] != '\0'; j++);
+if (i > size_r || j > size_r || i + 2 > size_r || j + 2 > size_r)
+return NULL;
+k = l = m = 0;
+for (i--, j--, n = 0; n < size_r - 1; i--, j--, n++) {
+k = (i >= 0 ? n1[i] - '0' : 0) + (j >= 0 ? n2[j] - '0' : 0) + l;
+if (k > 9) {
+l = 1;
+k %= 10;
+} else {
+l = 0;}
+r[n] = k + '0';}
+if (l == 1) {
+if (n + 1 >= size_r)
+return NULL;
+r[n++] = l + '0';
 }
-if (len2 > 0)
-{
-sum += n2[len2 - 1] - '0';
-len2--;
-}
-carry = sum / 10;
-r[i] = (sum % 10) + '0';
-i++;
-}
-if (carry > 0)
-{
-r[i] = carry + '0';
-i++;
-}
-r[i] = '\0';
-for (int j = 0; j < i / 2; j++)
-{
-char temp = r[j];
-r[j] = r[i - j - 1];
-r[i - j - 1] = temp;
-}
-return (r);
+r[n] = '\0';
+for (i = 0; r[i] == '0'; i++);
+for (j = 0; r[i]; i++, j++)
+r[j] = r[i];
+r[j] = '\0';
+for (i = 0, j = n - 1; i < j; i++, j--) {
+k = r[i];
+r[i] = r[j];
+r[j] = k;}
+return r;
 }
