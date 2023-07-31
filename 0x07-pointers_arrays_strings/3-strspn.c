@@ -32,6 +32,6 @@ s++;
 accept = accept - count;
 }
 
-return (count);
+return count;
 }
 
