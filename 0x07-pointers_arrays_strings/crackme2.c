@@ -33,4 +33,3 @@ putchar(message[i]);
 
 return (0);
 }
-
