@@ -1,4 +1,6 @@
-#include "main.h"
+uu#include "main.h"
+
+int is_palindrome_helper(char *s, int len);
 
 /**
  * is_palindrome - Checks if a string is a palindrome.
@@ -7,10 +9,12 @@
  */
 int is_palindrome(char *s)
 {
+    int len;
+
     if (*s == '\0') /* Base case: Empty string is a palindrome */
         return 1;
 
-    int len = _strlen_recursion(s);
+    len = _strlen_recursion(s);
     return check_palindrome(s, len);
 }
 
