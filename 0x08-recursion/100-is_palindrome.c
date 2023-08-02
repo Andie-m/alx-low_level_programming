@@ -6,7 +6,7 @@
 * @s2: the second string, which can contain the special character *
 * Return: 1 if s1 and s2 are identical, 0 otherwise
 */
-int wildcmp(char *s1, char *s2)
+int is_palindrome(char *s)
 {
 if (*s1 == '\0' && *s2 == '\0')
 return (1);
