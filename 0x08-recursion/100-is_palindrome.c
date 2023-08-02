@@ -1,48 +1,32 @@
 #include "main.h"
 
 /**
- * _strlen_recursion - size
- * @s: pointer to string params
- * Return: recursion
+ * is_palindrome - Checks if a string is a palindrome.
+ * @s: Input string.
+ * Return: 1 if palindrome, 0 otherwise.
  */
-int _strlen_recursion(char *s)
-{
-if (s == '\0')
-{
-return (0);
-}
-return (1 + _strlen_recursion(++s));
-}
-
-/**
-* p1 - palindrome
-* @s: pointer to string
-* @l: position
-* Return: boolean
-*/
-int p1(char *s, int l)
-{
-if (l < 1)
-{
-return (1);
-}
-if (s == (s + l))
-{
-return (p1(s + 1, l - 2));
-}
-else
-{
-return (0);
-}
-}
-
-/**
-* is_palindrome - returns 1 if a string is a palindrome and 0 if not
-* @s: pointer to string
-* Return: 1 if palindrome, 0 otherwise
-*/
 int is_palindrome(char *s)
 {
-int l = _strlen_recursion(s);
-return (p1(s, l - 1));
+    if (*s == '\0') /* Base case: Empty string is a palindrome */
+        return 1;
+
+    int len = _strlen_recursion(s);
+    return check_palindrome(s, len);
 }
+
+/**
+ * check_palindrome - Recursive helper function for palindrome check.
+ * @s: Input string.
+ * @len: Length of the string.
+ * Return: 1 if palindrome, 0 otherwise.
+ */
+int check_palindrome(char *s, int len)
+{
+    if (len <= 1) /* Base case: String with length 1 or 0 is a palindrome */
+        return 1;
+    if (*s != s[len - 1]) /* Check if the first and last characters are the same */
+        return 0;
+
+    return check_palindrome(s + 1, len - 2); /* Check the substring between the first and last characters */
+}
+
