@@ -1,4 +1,4 @@
-uu#include "main.h"
+#include "main.h"
 
 int is_palindrome_helper(char *s, int len);
 
