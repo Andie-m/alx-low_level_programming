@@ -1,5 +1,7 @@
 #include "main.h"
 
+int is_palindrome_helper(char *s, int len);
+
 /**
 * is_palindrome - checks if a string is a palindrome
 * @s: the string to check
@@ -36,5 +38,3 @@ return (0); /* not a palindrome */
 /* recursive case: check the substring without the first and last characters */
 return (is_palindrome_helper(s + 1, len - 2));
 }
-
-
