@@ -1,15 +1,17 @@
 #include "main.h"
 
 /**
- * _print_rev_recursion - print a string in reverse
- * @s: the string to be printed
+ * _print_rev_recursion - Prints a string in reverse.
+ * @s: Input string.
  */
 void _print_rev_recursion(char *s)
 {
-if (s != '\0') /* check if string is not empty */
+if (*s == '\0') /* Base case: If we've reached the end of the string */
+return;
+else
 {
-_print_rev_recursion(s + 1); /* call the function recursively with the */
-/* next character */
-_putchar(*s); /* print the current character */
+_print_rev_recursion(s + 1); /* Recursive call with the next character */
+_putchar(*s); /* Print the current character after the recursive call */
 }
-} 
+}
+ 
