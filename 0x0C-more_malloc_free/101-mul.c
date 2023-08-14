@@ -1,64 +1,100 @@
-#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include <stdio.h>
 
-void print_error() {
-    printf("Error\n");
-    exit(98);
+/**
+
+*mul - multiplies two positive numbers 
+*@num1: the first number 
+*@num2: the second number 
+*Return: the product of num1 and num2
+*/
+int mul(char *num1, char *num2)
+{
+int len1, len2, i, j, carry, sum, prod;
+int *result;
+
+/* check if the arguments are valid */
+if (num1 == NULL || num2 == NULL)
+return (98);
+for (i = 0; num1[i]; i++)
+if (num1[i] < '0' || num1[i] > '9')
+return (98);
+for (i = 0; num2[i]; i++)
+if (num2[i] < '0' || num2[i] > '9')
+return (98);
+
+/* get the lengths of the arguments */
+len1 = i;
+len2 = j;
+
+/* allocate memory for the result array */
+result = malloc(sizeof(int) * (len1 + len2));
+if (result == NULL)
+return (98);
+
+/* initialize the result array to zero */
+for (i = 0; i < len1 + len2; i++)
+result[i] = 0;
+
+/* multiply the numbers using long multiplication algorithm */
+for (i = len1 - 1; i >= 0; i--)
+{
+carry = 0;
+for (j = len2 - 1; j >= 0; j--)
+{
+prod = (num1[i] - '0') * (num2[j] - '0');
+sum = result[i + j + 1] + prod + carry;
+result[i + j + 1] = sum % 10;
+carry = sum / 10;
+}
+result[i + j + 1] += carry;
 }
 
-void multiply(const char *num1, const char *num2) {
-    int len1 = strlen(num1);
-    int len2 = strlen(num2);
-    int result_len = len1 + len2;
-    int *result = calloc(result_len, sizeof(int));
+/* print the result array */
+i = 0;
+while (i < len1 + len2 && result[i] == 0)
+i++;
+if (i == len1 + len2)
+putchar('0');
+while (i < len1 + len2)
+putchar(result[i++] + '0');
+putchar('\n');
 
-    if (!result)
-        print_error();
+/* free the result array */
+free(result);
 
-    for (int i = len1 - 1; i >= 0; i--) {
-        for (int j = len2 - 1; j >= 0; j--) {
-            int product = (num1[i] - '0') * (num2[j] - '0');
-            int sum = product + result[i + j + 1];
-            result[i + j + 1] = sum % 10;
-            result[i + j] += sum / 10;
-        }
-    }
-
-    int start = 0;
-    while (start < result_len && result[start] == 0)
-        start++;
-
-    if (start == result_len)
-        printf("0");
-    else {
-        for (int i = start; i < result_len; i++)
-            printf("%d", result[i]);
-    }
-
-    printf("\n");
-    free(result);
+/* return success */
+return (0);
 }
 
-int main(int argc, char *argv[]) {
-    if (argc != 3)
-        print_error();
+/** 
+*main - entry point 
+*@argc: the number of arguments 
+*@argv: the arguments 
+*Return: 0 on success, 98 on error
+*/
+int main(int argc, char **argv)
+{
+int status;
 
-    char *num1 = argv[1];
-    char *num2 = argv[2];
+/* check if the number of arguments is correct */
+if (argc != 3)
+{
+printf("Error\n");
+exit(98);
+}
 
-    for (int i = 0; num1[i] != '\0'; i++) {
-        if (num1[i] < '0' || num1[i] > '9')
-            print_error();
-    }
+/* call the mul function and get the status */
+status = mul(argv[1], argv[2]);
 
-    for (int i = 0; num2[i] != '\0'; i++) {
-        if (num2[i] < '0' || num2[i] > '9')
-            print_error();
-    }
+/* check if there was an error */
+if (status == 98)
+{
+printf("Error\n");
+exit(98);
+}
 
-    multiply(num1, num2);
-
-    return 0;
+/* return success */
+return (0);
 }
 
