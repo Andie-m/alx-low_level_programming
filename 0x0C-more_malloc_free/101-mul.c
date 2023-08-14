@@ -2,23 +2,6 @@
 #include <stdlib.h>
 
 /**
- * _strlen - Calculate the length of a string.
- * @s: The input string.
- * Return: The length of the string.
- */
-size_t _strlen(char *s)
-{
-    size_t len = 0;
-
-    while (*s)
-    {
-        len++;
-        s++;
-    }
-    return len;
-}
-
-/**
  * _isdigit - Check if a character is a digit.
  * @c: The input character.
  * Return: 1 if c is a digit, 0 otherwise.
@@ -90,8 +73,7 @@ int main(int argc, char *argv[])
 
     if (result == 0)
     {
-        putchar('0');
-        putchar('\n');
+        write(1, "0\n", 2);
     }
     else
     {
