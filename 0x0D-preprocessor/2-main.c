@@ -10,9 +10,9 @@ void printFileName(void);
  */
 int main(void)
 {
-    printFileName();
+printFileName();
 
-    return (0);
+return (0);
 }
 
 /**
@@ -20,15 +20,15 @@ int main(void)
  */
 void printFileName(void)
 {
-    int i = 0;
+int i = 0;
 
-    char filename[] = __FILE__;
+char filename[] = __FILE__;
 
-    while (filename[i] != '\0')
-    {
-        _putchar(filename[i]);
-        i++;
-    }
-    _putchar('\n');
+while (filename[i] != '\0')
+{
+_putchar(filename[i]);
+i++;
+}
+_putchar('\n');
 }
 
