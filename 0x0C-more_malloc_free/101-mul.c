@@ -1,100 +1,96 @@
 #include <stdlib.h>
-#include <stdio.h>
 
 /**
-
-*mul - multiplies two positive numbers 
-*@num1: the first number 
-*@num2: the second number 
-*Return: the product of num1 and num2
-*/
-int mul(char *num1, char *num2)
+ * _strlen - Calculate the length of a string.
+ * @s: The input string.
+ * Return: The length of the string.
+ */
+size_t _strlen(char *s)
 {
-int len1, len2, i, j, carry, sum, prod;
-int *result;
+	size_t len = 0;
 
-/* check if the arguments are valid */
-if (num1 == NULL || num2 == NULL)
-return (98);
-for (i = 0; num1[i]; i++)
-if (num1[i] < '0' || num1[i] > '9')
-return (98);
-for (i = 0; num2[i]; i++)
-if (num2[i] < '0' || num2[i] > '9')
-return (98);
-
-/* get the lengths of the arguments */
-len1 = i;
-len2 = j;
-
-/* allocate memory for the result array */
-result = malloc(sizeof(int) * (len1 + len2));
-if (result == NULL)
-return (98);
-
-/* initialize the result array to zero */
-for (i = 0; i < len1 + len2; i++)
-result[i] = 0;
-
-/* multiply the numbers using long multiplication algorithm */
-for (i = len1 - 1; i >= 0; i--)
-{
-carry = 0;
-for (j = len2 - 1; j >= 0; j--)
-{
-prod = (num1[i] - '0') * (num2[j] - '0');
-sum = result[i + j + 1] + prod + carry;
-result[i + j + 1] = sum % 10;
-carry = sum / 10;
-}
-result[i + j + 1] += carry;
+	while (*s)
+	{
+		len++;
+		s++;
+	}
+	return len;
 }
 
-/* print the result array */
-i = 0;
-while (i < len1 + len2 && result[i] == 0)
-i++;
-if (i == len1 + len2)
-putchar('0');
-while (i < len1 + len2)
-putchar(result[i++] + '0');
-putchar('\n');
-
-/* free the result array */
-free(result);
-
-/* return success */
-return (0);
+/**
+ * _isdigit - Check if a character is a digit.
+ * @c: The input character.
+ * Return: 1 if c is a digit, 0 otherwise.
+ */
+int _isdigit(char c)
+{
+	return (c >= '0' && c <= '9');
 }
 
-/** 
-*main - entry point 
-*@argc: the number of arguments 
-*@argv: the arguments 
-*Return: 0 on success, 98 on error
-*/
-int main(int argc, char **argv)
+/**
+ * _atoi - Convert a string to an integer.
+ * @s: The input string.
+ * Return: The converted integer.
+ */
+int _atoi(char *s)
 {
-int status;
+	int result = 0;
 
-/* check if the number of arguments is correct */
-if (argc != 3)
-{
-printf("Error\n");
-exit(98);
+	while (*s)
+	{
+		if (!_isdigit(*s))
+			exit(98);
+
+		result = result * 10 + (*s - '0');
+		s++;
+	}
+	return result;
 }
 
-/* call the mul function and get the status */
-status = mul(argv[1], argv[2]);
-
-/* check if there was an error */
-if (status == 98)
+/**
+ * _mul - Multiply two positive integers.
+ * @num1: The first number.
+ * @num2: The second number.
+ * Return: The product of num1 and num2.
+ */
+int _mul(int num1, int num2)
 {
-printf("Error\n");
-exit(98);
+	return num1 * num2;
 }
 
-/* return success */
-return (0);
+/**
+ * main - Entry point of the program.
+ * @argc: The number of arguments.
+ * @argv: An array of argument strings.
+ * Return: 0 on success, 98 on error.
+ */
+int main(int argc, char *argv[])
+{
+	int num1, num2, result;
+
+	if (argc != 3)
+	{
+		write(1, "Error\n", 6);
+		exit(98);
+	}
+
+	if (!_isdigit(*argv[1]) || !_isdigit(*argv[2]))
+	{
+		write(1, "Error\n", 6);
+		exit(98);
+	}
+
+	num1 = _atoi(argv[1]);
+	num2 = _atoi(argv[2]);
+	result = _mul(num1, num2);
+
+	while (result > 0)
+	{
+		putchar(result % 10 + '0');
+		result /= 10;
+	}
+	putchar('\n');
+
+	return 0;
 }
 
