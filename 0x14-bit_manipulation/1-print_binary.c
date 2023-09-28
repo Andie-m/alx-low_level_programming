@@ -1,9 +1,8 @@
 #include "main.h"
 
 /**
- *binary_to_uint - converts a binary number to an unsigned int.
- * @b: binary.
- * Return: unsigned int.
+ * print_binary - prints the binary equivalent to decimal number
+ * @n: number to print in binary
  */
 void print_binary(unsigned long int n)
 {
